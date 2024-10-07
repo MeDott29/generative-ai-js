@@ -1,20 +1,3 @@
-/**
- * @license
- * Copyright 2024 Google LLC
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { GoogleAIFileManager, FileState } from "@google/generative-ai/server";
 import fs from "fs";
@@ -28,7 +11,7 @@ async function textGenTextOnlyPrompt() {
   // [START text_gen_text_only_prompt]
   // Make sure to include these imports:
   // import { GoogleGenerativeAI } from "@google/generative-ai";
-  const genAI = new GoogleGenerativeAI(process.env.API_KEY);
+  const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
   const prompt = "Write a story about a magic backpack.";
@@ -42,7 +25,7 @@ async function textGenTextOnlyPromptStreaming() {
   // [START text_gen_text_only_prompt_streaming]
   // Make sure to include these imports:
   // import { GoogleGenerativeAI } from "@google/generative-ai";
-  const genAI = new GoogleGenerativeAI(process.env.API_KEY);
+  const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
   const prompt = "Write a story about a magic backpack.";
@@ -61,7 +44,7 @@ async function textGenMultimodalOneImagePrompt() {
   // [START text_gen_multimodal_one_image_prompt]
   // Make sure to include these imports:
   // import { GoogleGenerativeAI } from "@google/generative-ai";
-  const genAI = new GoogleGenerativeAI(process.env.API_KEY);
+  const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
   function fileToGenerativePart(path, mimeType) {
@@ -89,7 +72,7 @@ async function textGenMultimodalOneImagePromptStreaming() {
   // [START text_gen_multimodal_one_image_prompt_streaming]
   // Make sure to include these imports:
   // import { GoogleGenerativeAI } from "@google/generative-ai";
-  const genAI = new GoogleGenerativeAI(process.env.API_KEY);
+  const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
   function fileToGenerativePart(path, mimeType) {
@@ -122,7 +105,7 @@ async function textGenMultimodalMultiImagePrompt() {
   // [START text_gen_multimodal_multi_image_prompt]
   // Make sure to include these imports:
   // import { GoogleGenerativeAI } from "@google/generative-ai";
-  const genAI = new GoogleGenerativeAI(process.env.API_KEY);
+  const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
   function fileToGenerativePart(path, mimeType) {
@@ -154,7 +137,7 @@ async function textGenMultimodalMultiImagePromptStreaming() {
   // [START text_gen_multimodal_multi_image_prompt_streaming]
   // Make sure to include these imports:
   // import { GoogleGenerativeAI } from "@google/generative-ai";
-  const genAI = new GoogleGenerativeAI(process.env.API_KEY);
+  const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
   function fileToGenerativePart(path, mimeType) {
@@ -191,7 +174,7 @@ async function textGenMultimodalAudio() {
   // [START text_gen_multimodal_audio]
   // Make sure to include these imports:
   // import { GoogleGenerativeAI } from "@google/generative-ai";
-  const genAI = new GoogleGenerativeAI(process.env.API_KEY);
+  const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
   function fileToGenerativePart(path, mimeType) {
@@ -220,10 +203,10 @@ async function textGenMultimodalVideoPrompt() {
   // Make sure to include these imports:
   // import { GoogleGenerativeAI } from "@google/generative-ai";
   // import { GoogleAIFileManager, FileState } from "@google/generative-ai/server";
-  const genAI = new GoogleGenerativeAI(process.env.API_KEY);
+  const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-  const fileManager = new GoogleAIFileManager(process.env.API_KEY);
+  const fileManager = new GoogleAIFileManager(process.env.GEMINI_API_KEY);
 
   const uploadResult = await fileManager.uploadFile(
     `${mediaPath}/Big_Buck_Bunny.mp4`,
@@ -262,10 +245,10 @@ async function textGenMultimodalVideoPromptStreaming() {
   // Make sure to include these imports:
   // import { GoogleGenerativeAI } from "@google/generative-ai";
   // import { GoogleAIFileManager, FileState } from "@google/generative-ai/server";
-  const genAI = new GoogleGenerativeAI(process.env.API_KEY);
+  const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-  const fileManager = new GoogleAIFileManager(process.env.API_KEY);
+  const fileManager = new GoogleAIFileManager(process.env.GEMINI_API_KEY);
 
   const uploadResult = await fileManager.uploadFile(
     `${mediaPath}/Big_Buck_Bunny.mp4`,
